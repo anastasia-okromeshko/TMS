@@ -2,9 +2,12 @@
 # при обходе циклом он отдавал только элементы на четных индексах,
 # возведенные в квадрат.
 class ListIterator:
-    def __init__(self, collection, cursor):
+    def __init__(self, collection, cursor=0):
         self._collection = collection
         self._cursor = cursor
+
+    def __iter__(self):
+        return self
 
     def __next__(self):
         if self._cursor >= len(self._collection):
@@ -15,14 +18,6 @@ class ListIterator:
         return a
 
 
-class ListCollection:
-    def __init__(self, collection):
-        self._collection = collection
-
-    def __iter__(self):
-        return ListIterator(self._collection, 0)
-
-
-_iterable = ListCollection([1, 2, 3, 4, 5])
+_iterable = ListIterator([1, 2, 3, 4, 5])
 for i in _iterable:
     print(i)
