@@ -43,7 +43,7 @@ class Car:
         self.__speed = new_speed
 
     def clock(self):
-        print(self.__speed)
+        return (self.__speed)
 
     def increase_speeds(self):
         """ Increases speed by 5
@@ -54,12 +54,10 @@ class Car:
             return print('Speed 0')
 
     def decrease_speed(self):
-        """ Decreases speed by 5
-        """
-        if self.__speed > 4:
-            return self.__speed - 5
+        if self.__speed - 5 < 0:
+            raise ValueError('Speed < 0')
         else:
-            return print('Speed 0')
+            return self.__speed - 5
 
     def stop(self):
         """ Reset speed to 0
@@ -79,8 +77,8 @@ class Car:
 
 
 def main():
-    car_1 = Car('BMW', '560', 2020, 120)
-    print(car_1.increase_speeds())
+    car_1 = Car('BMW', '560', 2020, 3)
+    print(car_1.decrease_speed())
 
 
 if __name__ == '__main__':

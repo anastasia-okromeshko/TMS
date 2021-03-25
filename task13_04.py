@@ -43,7 +43,7 @@ class Car:
         self.__speed = new_speed
 
     def clock(self):
-        print(self.__speed)
+       return (self.__speed)
 
     def increase_speeds(self):
         """ Increases speed by 5
@@ -84,6 +84,7 @@ class Car:
 def main():
     car_1 = Car('BMW', '560', 2020, -5)
     print(car_1.decrease_speed())
+    print(car_1.clock())
 
 
 if __name__ == '__main__':
